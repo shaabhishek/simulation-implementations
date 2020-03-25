@@ -1,4 +1,3 @@
-import argparse
 from math import log, sin, cos, sqrt, pi
 
 import numpy as np
@@ -49,12 +48,6 @@ class Gaussian(Distribution):
         except IndexError:
             self.fill_cache()
             return self.cache.pop()*self._sigma + self._mu
-
-    def sample(self, *shape):
-        num_samples = np.prod(shape, dtype=int)
-        samples = [self._sample() for _ in range(num_samples)]
-        samples = np.reshape(samples, shape)
-        return samples
 
 class StdNormal(Gaussian):
     def __init__(self, ugen1:RngStream, ugen2:RngStream):
