@@ -34,13 +34,13 @@ class DensityPlotter(DistPlotter):
     def __init__(self, dist:Distribution):
         super().__init__(dist)
 
-    def plot_density(self, num_samples:int, ax:plt.Axes):
-        samples = [self.dist.sample() for _ in range(num_samples)]
+    def plot_density(self, samples:np.ndarray, ax:plt.Axes):
+        # samples = [self.dist.sample() for _ in range(num_samples)]
         ax.hist(samples, bins=100)
         ax.set_title("Density")
 
-    def make_plots(self, num_samples:int):
+    def make_plots(self, samples:np.ndarray):
         _, ax = plt.subplots(1,1)
-        self.plot_density(num_samples, ax)
+        self.plot_density(samples, ax)
 
         plt.show()
