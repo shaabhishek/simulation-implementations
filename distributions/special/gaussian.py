@@ -9,9 +9,7 @@ from distributions.make_plots import DensityPlotter
 from distributions.utils import get_parser, test_mean
 
 class Gaussian(Distribution):
-    """
-    Gaussian using the Box-Mueller transform (Law page 457)
-    """
+    """Gaussian using the Box-Mueller transform (Law page 457)"""
     def __init__(self, mu:float, sigma:float, ugen1:RngStream, ugen2:RngStream):
         self._mu = mu
         self._sigma = sigma
